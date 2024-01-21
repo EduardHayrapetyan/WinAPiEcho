@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define BUFFER_SIZE 256
 
-int main() {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     HANDLE hConsoleInput = GetStdHandle(STD_INPUT_HANDLE);
     HANDLE hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -18,12 +18,6 @@ int main() {
         // Handle error
         return 0;
     }
-    while (1) {
-        // Write to console output
-        if (!WriteConsole(hConsoleOutput, buffer, bytesRead, &bytesWritten, NULL)) {
-            // Handle error
-            break;
-        }
-    }
+    MessageBox(NULL,buffer,"title",1);
     return 0;
 }
